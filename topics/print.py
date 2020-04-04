@@ -18,7 +18,7 @@ print ("The students are named: \n%s\n%s\n%s" % ( name1, name2, name3))
 print("This is a test")
 print('This is a test')
 
-# print a vaiable storing a string
+# print a variable storing a string
 my_str = "This is a test"
 print(my_str)
 
