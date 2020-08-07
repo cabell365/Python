@@ -12,5 +12,5 @@ tic-tac-toe.py
 * Basic Tic-Tac_toe game
 
 word_puzzle.py
-* Fine a sentence by guessing leters. 
+* Find a sentence by guessing leters. 
 * Similar to "Wheel of Fortune"
