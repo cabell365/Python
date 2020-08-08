@@ -14,3 +14,15 @@ tic-tac-toe.py
 word_puzzle.py
 * Find a sentence by guessing leters. 
 * Similar to "Wheel of Fortune"
+
+war.py
+* Very simple game of War
+* Two computerized players.
+* Each player selects the first card on the deck
+* Here are the rules:
+  * The highest card wins
+  * Aces are highest, 2 is lowest
+  * Player with highest card receives the card from the other player.
+       and both cards are moved to the back of the deck
+  * Game Winner is determined by who has the most cards after X hands are played
+  * Game is simplified. Both players cards are moved to the back of the deck in a tie
