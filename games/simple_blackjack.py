@@ -24,9 +24,10 @@ def get_card(deck):
         card_delt = randint (0,len(deck)-1)
         if card_delt < len(deck)-1:
             if deck[card_delt] in deck:
+                card_found=deck[card_delt]
                 deck.remove(deck[card_delt])
                 is_not_card_available = False
-    return deck, deck[card_delt]
+    return deck, card_found
 
 def get_card_value(card):
     card_value_dict = {"A":11,"K":10,"Q":10,"J":10,"2":2,"3":3,"4":4,"5":5,"6":6,"7":7,"8":8,"9":9,"10":10}
