@@ -5,6 +5,11 @@ dice_game.py
 * Roll the dice 3 times and get 5 points for each time your number is rolled
 * A die is removed when you hit your number
 
+craps.py
+* The first dice roll will set the come point. You win if it is a natural (7, 11)
+* The player loses if it is craps (2, 3, 12) 
+* Other rolls will make you a winner if the come point is repeated before a 7 is rolled
+
 simple_blackjack.py
 * Very simple blackjack game
 
