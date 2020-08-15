@@ -141,10 +141,12 @@ class GenPassword:
 # We perform the check prior to generating a password using class property
 print("Test 1: Verify creation of a password:")
 my_pass_phrase = "The desert is great"
+print("The password phrase selected: {}".format(my_pass_phrase))
 MyPhrasePassword = GenPassword(my_pass_phrase)
 if len(my_pass_phrase) > MyPhrasePassword.min_pass_length:
     my_phrase_password = MyPhrasePassword.gen_phrase_password()
-    print(my_phrase_password)
+    print("Pass phrase is valid.")
+    print("Generated Password: {}".format(my_phrase_password))
 else:
     print("Pass phrase is too short!")
 
@@ -155,10 +157,12 @@ print("\n")
 # We perform the check prior to generating a password using class property
 print("Test 2: Attempt to create a password that is two short:")
 my_pass_phrase = "The desert"
+print("The password selected: {}".format(my_pass_phrase))
 MyPhrasePassword2 = GenPassword(my_pass_phrase)
 if len(my_pass_phrase) > MyPhrasePassword2.min_pass_length:
     my_phrase_password = MyPhrasePassword2.gen_phrase_password()
-    print(my_phrase_password)
+    print("Pass phrase is valid.")
+    print("Generated Password: {}".format(my_phrase_password))
 else:
     print("Pass phrase is too short!")
 
@@ -169,11 +173,13 @@ print("\n")
 # We use our method this time to check the length of the pass phrase
 print("Test 3: Use method to validate pass phrase length:")
 my_pass_phrase = "I am tired"
+print("The password phrase selected: {}".format(my_pass_phrase))
 MyPhrasePassword2 = GenPassword()
 MyPhrasePassword2.set(my_pass_phrase)
 if MyPhrasePassword2.is_pass_phrase_len_valid():
     my_phrase_password = MyPhrasePassword2.gen_phrase_password()
-    print(my_phrase_password)
+    print("Pass phrase is valid.")
+    print("Generated Password: {}".format(my_phrase_password))
 else:
     print("Pass phrase is too short!")
 
@@ -183,10 +189,12 @@ print("\n")
 # Rule is to change invalid characters to "!"
 print("Test 4: Create password containing an invalid character:")
 my_pass_phrase = "The desert is great %"
+print("The password phrase selected: {}".format(my_pass_phrase))
 MyPhrasePassword2 = GenPassword(my_pass_phrase)
 if len(my_pass_phrase) > MyPhrasePassword2.min_pass_length:
     my_phrase_password = MyPhrasePassword2.gen_phrase_password()
-    print(my_phrase_password)
+    print("Pass phrase is valid.")
+    print("Generated Password: {}".format(my_phrase_password))
 else:
     print("Pass phrase is too short!")
 
@@ -201,7 +209,8 @@ MyPhrasePassword2 = GenPassword()
 MyPhrasePassword2.set(my_pass_phrase)
 if MyPhrasePassword2.is_pass_phrase_len_valid():
     my_phrase_password = MyPhrasePassword2.gen_phrase_password()
-    print(my_phrase_password)
+    print("Pass phrase is valid.")
+    print("Generated Password: {}".format(my_phrase_password))
 else:
     print("Pass phrase is too short!")
 
