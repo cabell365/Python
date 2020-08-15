@@ -17,6 +17,8 @@
 
 
 from random import randint
+import os.path
+from os import path
 
 def encrypt(my_sentence):
     min_rand_int = 1000
@@ -53,45 +55,47 @@ def decrypt(encrypted_sentence):
             letter = ""
 
     for encrypted_letter in my_letter_list:
-        #print(chr(int(encrypted_letter[string_start:string_end])+salt))
         decrypted_sentence = decrypted_sentence + chr(int(encrypted_letter[string_start:string_end]))
     return (decrypted_sentence)
 
 def main():
     my_file = "message.txt"
     my_encrypted_file = "encrypt_message.txt"
+ 
+    if path.exists(my_file):
+        
+        fr = open(my_file, "r")
+        print ("Original Message:")
+        for line in fr:
+            print(line)
+        fr.close()
 
-    
-    fr = open(my_file, "r")
-    print ("Original Message:")
-    for line in fr:
-        print(line)
-    fr.close()
+        fr2 = open(my_file, "r")
+        fw = open(my_encrypted_file, "w")
+        for line2 in fr2:
+            my_encrypted_sentence = encrypt(line2)
+            fw.write(my_encrypted_sentence)
+            fw.write("\n")
 
-    fr2 = open(my_file, "r")
-    fw = open(my_encrypted_file, "w")
-    for line2 in fr2:
-        my_encrypted_sentence = encrypt(line2)
-        fw.write(my_encrypted_sentence)
-        fw.write("\n")
+        fr2.close()
+        fw.close()
 
-    fr2.close()
-    fw.close()
+        print("\n")
 
-    print("\n")
+        fre = open(my_encrypted_file, "r")
+        print ("Encrypted Message:")
+        for encrypted_line in fre:
+            print(encrypted_line)
+        fre.close()
 
-    fre = open(my_encrypted_file, "r")
-    print ("Encrypted Message:")
-    for encrypted_line in fre:
-        print(encrypted_line)
-    fre.close()
-
-    fr3 = open(my_encrypted_file, "r")
-    print ("Decrypted Message:")
-    for line3 in fr3:
-        my_decrypted_sentence = decrypt(line3)
-        print("{}".format(my_decrypted_sentence))
-    fr3.close()
+        fr3 = open(my_encrypted_file, "r")
+        print ("Decrypted Message:")
+        for line3 in fr3:
+            my_decrypted_sentence = decrypt(line3)
+            print("{}".format(my_decrypted_sentence))
+        fr3.close()
+    else:
+        print("Please create a file named message.txt and enter a typed message in the file to encryot and decrypt!")
 
 # Execute main program
 if __name__== "__main__":
