@@ -81,12 +81,11 @@ def play_cards(player_1_list, player_2_list):
     player_2_card_value=get_card_value(player_2_card)
     transaction_list.append(player_2_card)
 
-    # test_list.append(test_list.pop(test_list.index(5))) 
+    # deternmine which card is largest 
     if player_1_card_value > player_2_card_value:
         player_1_list.append(player_2_card)
         player_2_list.remove(player_2_card)
         player_1_list.append(player_1_list.pop(player_1_list.index(player_1_card)))
-        
         transaction_list.append("1")
     elif player_1_card_value < player_2_card_value:
         player_2_list.append(player_1_card)
@@ -106,8 +105,8 @@ def print_lines():
     print("\n")
 
 def print_rules():
-    print("This is a game of card based War.")
-    print("Player two is the computer")
+    print("This is a card game based on the popular card game War.")
+    print("You are basically only an observer of the battle")
     print("Here are the basic rules of the game:")
     print("\tTwo computer players play the card game War")
     print("\tEach player is delt 26 cards")
@@ -117,6 +116,8 @@ def print_rules():
     print("\tThe deck suits are 'S' for Spades, 'H' for Hearts, 'D' for Diamonds and 'C' for Clubs")
     print("\tThe 'A' is Ace, 'K' is King, 'Q' is Queen and 'J' is Jack")
     print("\tThe non-face cards are represented with the numbers 2 through 10")
+    print("\tThe game continues until the user types (q) or a player runs out of cards")
+    print()
 
 # Build the initial deck
 my_deck_list = build_deck()
@@ -135,20 +136,52 @@ print_lines()
 print_rules()
 
 # Play a hand
-while max_number_of_hands != number_of_hands:
-    
-    my_player_1_list, my_player_2_list,my_transaction_list=play_cards(my_player_1_list, my_player_2_list)
-    print("Player One's card: {}".format(my_transaction_list[0]))
-    print("Player Twos's card: {}".format(my_transaction_list[1]))
-    print()
+continue_playing = True
+#while max_number_of_hands != number_of_hands:
+while continue_playing:
 
-    print("Player one length:",len(my_player_1_list))
-#     for my_player1_card in my_player_1_list:
-#         print(my_player1_card)
+    my_user_choice=input("Please enter <p>lay to play or (q)uit to exit:")
+    if my_user_choice.lower() == 'q':
+         continue_playing = False
+    elif my_user_choice.lower() == 'p':
+        is_valid_choice = True
+    else:
+        is_valid_choice = False
+        
+    if is_valid_choice:
+         
+        if len(my_player_1_list) == 0:
+            print("player 1 out of cards! Player 2 wins!")
+            continue_playing = False
+        elif len(my_player_2_list) == 0:
+            print("player 2 out of cards! Player 1 wins!")
+            continue_playing = False
+        else:
+            my_player_1_list, my_player_2_list,my_transaction_list=play_cards(my_player_1_list, my_player_2_list)
+            print("Player One's card: {}".format(my_transaction_list[0]))
+            print("Player Twos's card: {}".format(my_transaction_list[1]))
+ 
+            # Determine winner of thje war
+            if my_transaction_list[2] == '1':
+                print("Player one has the higher card and receives {} and {}.".format(my_transaction_list[0],my_transaction_list[1]))
+            elif my_transaction_list[2] == '2':
+                print("Player two  has the higher card and receives {} and {}.".format(my_transaction_list[0],my_transaction_list[1]))
+            else:
+                print("Each player keeps their card and it is placed at the back of the deck.")
+                      
+            print()
 
-    print("Player two length:",len(my_player_2_list))
-#     for my_player2_card in my_player_2_list:
-#         print(my_player2_card)
-    print()
-    
-    number_of_hands+=1
+        number_of_hands+=1
+
+# print sfinal tally
+print_lines()
+print("Final Totals:")
+print("Player one's number of cards:",len(my_player_1_list))
+print("Player two's number of cards:",len(my_player_2_list))
+print("Number of hands played:", number_of_hands)
+if len(my_player_1_list) > len(my_player_2_list):
+    print("player 1 wins!")
+elif len(my_player_2_list) > len(my_player_1_list):
+    print("player 2 wins!")
+else:
+    print("Game ends in a tie!")
