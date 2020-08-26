@@ -20,6 +20,10 @@ word_puzzle.py
 * Find a sentence by guessing leters. 
 * Similar to "Wheel of Fortune"
 
+three_card_monte.py
+* The basic 3 card monte game
+* There are three aces and you win if you find the Ace of Diamonds
+
 war.py
 * Very simple game of War
 * Two computerized players.
