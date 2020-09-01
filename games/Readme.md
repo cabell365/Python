@@ -35,3 +35,6 @@ war.py
        and both cards are moved to the back of the deck
   * Game Winner is determined by who has the most cards after X hands are played
   * Game is simplified. Both players cards are moved to the back of the deck in a tie
+
+magic_8_ball.py
+* Simple magic 8 ball game. Ask question and receive a random answer based on 20 predefined questions
