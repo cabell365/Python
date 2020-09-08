@@ -38,3 +38,6 @@ war.py
 
 magic_8_ball.py
 * Simple magic 8 ball game. Ask question and receive a random answer based on 20 predefined questions
+
+slot_machine.py
+* Simple slot machine based game

@@ -53,7 +53,7 @@ def main():
         print("{}\n".format(magic_8_ball))
  
         # Prompt the user to ask the question
-        my_question=input("Please ask a yes or no question and the magic 8 ball will tell you the future!: ")
+        input("Please ask a yes or no question and the magic 8 ball will tell you the future!: ")
  
         # Get the list of possible answers
         my_possible_answers=get_answers()
