@@ -19,6 +19,21 @@ def get_slot_symbols():
 
     return slot_symbols
 
+def get_slot_wheel(slot_symbols_list):
+    
+    slot_wheel_list = []
+    
+    slot_symbols_index_1=randint(0,len(slot_symbols_list)-1)
+    slot_wheel_list.append(slot_symbols_list[slot_symbols_index_1])
+        
+    slot_symbols_index_2=randint(0,len(slot_symbols_list)-1)
+    slot_wheel_list.append(slot_symbols_list[slot_symbols_index_2])
+        
+    slot_symbols_index_3=randint(0,len(slot_symbols_list)-1)
+    slot_wheel_list.append(slot_symbols_list[slot_symbols_index_3])
+        
+    return slot_wheel_list
+
 def get_combo_winnings(slot_symbols):
     
     winnings = 0
@@ -86,15 +101,8 @@ def main():
         
         my_slot_wheel_list = []
         
-        my_slot_symbols_index_1=randint(0,len(my_slot_symbols_list)-1)
-        my_slot_wheel_list.append(my_slot_symbols_list[my_slot_symbols_index_1])
+        my_slot_wheel_list=get_slot_wheel(my_slot_symbols_list)
         
-        my_slot_symbols_index_2=randint(0,len(my_slot_symbols_list)-1)
-        my_slot_wheel_list.append(my_slot_symbols_list[my_slot_symbols_index_2])
-        
-        my_slot_symbols_index_3=randint(0,len(my_slot_symbols_list)-1)
-        my_slot_wheel_list.append(my_slot_symbols_list[my_slot_symbols_index_3])
-           
         my_credits=my_credits-my_play_amount
         my_winnings=get_combo_winnings(my_slot_wheel_list)
         if my_winnings == 0:
